@@ -37,6 +37,12 @@ class Request():
                                 auth=BearerAuth(self.token))
         data = response.json()
         df = pd.DataFrame(data)
+
+        # Convert column ico to numeric
+        if self.resource == "products":
+            df['trader'] = df['trader'].apply(pd.to_numeric)
+
+        df['ico'] = df['ico'].apply(pd.to_numeric)
         return df
 
 
