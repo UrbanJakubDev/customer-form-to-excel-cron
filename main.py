@@ -87,9 +87,9 @@ def main():
 
     # Create jobs
     for resource in resources:
-        interval = '*/2'
+        interval = '*/1'
         print('Creating job for resource: ' + resource +
-              'with interval: Minute=' + str(interval))
+              ' with interval: Minute=' + str(interval))
 
         scheduler.add_job(
             create_excel,
