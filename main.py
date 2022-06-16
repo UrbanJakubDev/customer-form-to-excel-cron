@@ -60,7 +60,7 @@ def create_excel(resource):
     save_path = 'data/'
 
     # Create request
-    request = Request(URL, TOKEN, resource)
+    request = Request(URL, TOKEN, resource + '/excel')
     df = request.get_data()
     df.to_excel(save_path + resource + '.xlsx')
 
