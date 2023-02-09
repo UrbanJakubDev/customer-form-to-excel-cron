@@ -4,6 +4,7 @@ services:
   customerexcel:
     container_name: CustomerExcel
     image: customerexcel
+    restart: always
     build:
       context: .
       dockerfile: ./Dockerfile

@@ -22,8 +22,6 @@ class BearerAuth(requests.auth.AuthBase):
 Request class
 param: URL, TOKEN, resource
 """
-
-
 class Request():
 
     def __init__(self, url, token, resource):
@@ -33,9 +31,8 @@ class Request():
 
     # Get the data from the API and return it as a dataframe
     def get_data(self):
-        response = requests.get(self.url + self.resource,
-                                auth=BearerAuth(self.token))
-        data = response.json()
+        
+        data = requests.get(self.url + self.resource,auth=BearerAuth(self.token)).json()
         df = pd.DataFrame(data)
 
         # Convert column ico to numeric
@@ -49,8 +46,6 @@ class Request():
 """
 Function for saving data to excel file
 """
-
-
 def create_excel(resource):
 
     # Load .env file
@@ -102,7 +97,8 @@ def main():
             trigger='cron',
             minute=interval,
             id=resource,
-            args=[resource])
+            args=[resource],
+            replace_existing=True)
 
     # Start scheduler
     scheduler.start()
