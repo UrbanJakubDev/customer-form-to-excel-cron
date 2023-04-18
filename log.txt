@@ -1,9 +1,0 @@
-INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
-INFO:root:Job for resource: products created
-INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
-INFO:root:Job for resource: purchases created
-INFO:apscheduler.scheduler:Added job "CustomerForm.create_excel" to job store "default"
-INFO:apscheduler.scheduler:Added job "CustomerForm.create_excel" to job store "default"
-INFO:apscheduler.scheduler:Scheduler started
-DEBUG:apscheduler.scheduler:Looking for jobs to run
-DEBUG:apscheduler.scheduler:Next wakeup is due at 2023-02-09 12:31:00+01:00 (in 25.914368 seconds)

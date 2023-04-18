@@ -1,5 +1,3 @@
-
-
 # Import database connection
 import datetime
 from database import DBConnection
