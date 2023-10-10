@@ -20,30 +20,27 @@ logging.getLogger('apscheduler').setLevel(logging.DEBUG)
 
 def main():
 
-    # Job store SQLite for scheduler
+    # APScheduler settings
     jobstores = {
         'default': SQLAlchemyJobStore(url='sqlite:///jobs.sqlite')
     }
 
-    # Executors
     executors = {
         'default': ThreadPoolExecutor(2),
         'processpool': ProcessPoolExecutor(2)
     }
 
-    # Scheduler
     scheduler = BackgroundScheduler(
         jobstores=jobstores,
         executors=executors,
         timezone="Europe/Prague")
 
-    # Create jobs
+    # Add jobs to scheduler
     customer = CustomerForm()
     customer.create_jobs(scheduler)
     
-    # Add jobs to scheduler
     gw = GasWatcher()
-    scheduler.add_job(gw.run, 'interval', minutes=1)
+    scheduler.add_job(gw.run(), 'interval', minutes=1, id='gas_watcher', replace_existing=True)
 
 
 
@@ -55,7 +52,7 @@ def main():
 
     # Run forever
     while True:
-        time.sleep(2)
+        pass
 
 
 if __name__ == '__main__':

@@ -32,8 +32,8 @@ class Request():
     # Get the data from the API and return it as a dataframe
     def get_data(self):
 
-        data = requests.get(self.url + self.resource,
-                            auth=BearerAuth(self.token)).json()
+        res = requests.get(self.url + self.resource + '/excel', auth=BearerAuth(self.token))
+        data = res.json()
         df = pd.DataFrame(data)
 
         # Convert column ico to numeric
@@ -56,7 +56,7 @@ class CustomerForm():
         load_dotenv()
         self.URL = os.getenv('URL')
         self.TOKEN = os.getenv('TOKEN')
-        self.save_path = 'data/'
+        self.save_path = os.getenv('FILE_STORAGE_PATH')
         self.resources = ['products', 'purchases']
         self.interval = '*/1'
 
