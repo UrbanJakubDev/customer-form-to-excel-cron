@@ -4,11 +4,11 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
 from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
 
-from customer import CustomerForm
+from src.customer import CustomerForm
+from src.gas_watcher import GasWatcher
 
 import logging
 
-from gas_watcher import GasWatcher
 # Logging to file
 logging.basicConfig(filename='logs.log', level=logging.DEBUG)
 logging.getLogger('apscheduler').setLevel(logging.DEBUG)
@@ -34,13 +34,15 @@ def main():
         jobstores=jobstores,
         executors=executors,
         timezone="Europe/Prague")
+    
+
 
     # Add jobs to scheduler
     customer = CustomerForm()
     customer.create_jobs(scheduler)
     
     gw = GasWatcher()
-    scheduler.add_job(gw.run(), 'interval', minutes=1, id='gas_watcher', replace_existing=True)
+    gw.create_job(scheduler)
 
 
 
