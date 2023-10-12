@@ -38,8 +38,8 @@ def main():
 
 
     # Add jobs to scheduler
-    customer = CustomerForm()
-    customer.create_jobs(scheduler)
+    # customer = CustomerForm()
+    # customer.create_jobs(scheduler)
     
     gw = GasWatcher()
     gw.create_job(scheduler)
