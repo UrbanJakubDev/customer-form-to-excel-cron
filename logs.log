@@ -236,3 +236,16 @@ DEBUG:apscheduler.scheduler:Looking for jobs to run
 INFO:apscheduler.executors.default:Running job "GasWatcher.run (trigger: interval[0:01:00], next run at: 2023-10-12 12:47:18 CEST)" (scheduled at 2023-10-12 12:46:18.348043+02:00)
 DEBUG:apscheduler.scheduler:Next wakeup is due at 2023-10-12 12:47:18.348043+02:00 (in 59.866762 seconds)
 INFO:apscheduler.executors.default:Job "GasWatcher.run (trigger: interval[0:01:00], next run at: 2023-10-12 12:47:18 CEST)" executed successfully
+INFO:apscheduler.scheduler:Adding job tentatively -- it will be properly scheduled when the scheduler starts
+INFO:apscheduler.scheduler:Added job "GasWatcher.run" to job store "default"
+INFO:apscheduler.scheduler:Scheduler started
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2023-10-12 16:30:00+02:00 (in 1500.557932 seconds)
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+INFO:apscheduler.executors.default:Running job "GasWatcher.run (trigger: cron[minute='*/30'], next run at: 2023-10-12 16:30:00 CEST)" (scheduled at 2023-10-12 16:30:00+02:00)
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2023-10-12 17:00:00+02:00 (in 1799.863822 seconds)
+INFO:apscheduler.executors.default:Job "GasWatcher.run (trigger: cron[minute='*/30'], next run at: 2023-10-12 17:00:00 CEST)" executed successfully
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+INFO:apscheduler.executors.default:Running job "GasWatcher.run (trigger: cron[minute='*/30'], next run at: 2023-10-12 17:30:00 CEST)" (scheduled at 2023-10-12 17:00:00+02:00)
+DEBUG:apscheduler.scheduler:Next wakeup is due at 2023-10-12 17:30:00+02:00 (in 1799.787429 seconds)
+INFO:apscheduler.executors.default:Job "GasWatcher.run (trigger: cron[minute='*/30'], next run at: 2023-10-12 17:30:00 CEST)" executed successfully

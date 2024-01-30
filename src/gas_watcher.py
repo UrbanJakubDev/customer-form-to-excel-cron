@@ -67,7 +67,8 @@ class GasWatcher():
         
         df = pd.DataFrame()
         for device in self.devices:
-            sql = self.make_query(device, 2023)
+            sql = self.make_query(device, 2024)
+            print(sql)
             data = pd.read_sql(sql, engine)
             print(data)
             # Append data to df
@@ -86,15 +87,8 @@ class GasWatcher():
 
     def run(self):
         
-        try:
-            data = self.get_data()
-        except Exception as e:
-            print(e)
+   
+        data = self.get_data()
 
-        try:
-            self.save_data(data)
-        except Exception as e:
-            print(e)
-            print('Trying to save data again')
-
+        self.save_data(data)
         print(f'Gas watcher job done. Data saved to {self.save_path} at {pd.Timestamp.now()}')
